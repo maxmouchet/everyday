@@ -1,15 +1,18 @@
 FROM ubuntu:latest
 ENV DEBIAN_FRONTEND=noninteractive
-WORKDIR /root
 
-RUN apt-get update \
-    && apt-get install --no-install-recommends --yes \
-        ubuntu-standard \
+RUN yes | unminimize
+
+RUN apt-get update && apt-get install --yes \
         build-essential \
+        ubuntu-standard
+
+RUN apt-get update && apt-get install --yes \
         curl \
         fd-find \
         git \
         gron \
+        htop \
         iproute2 \
         iputils-ping \
         jq \
@@ -20,10 +23,13 @@ RUN apt-get update \
         pipx \
         ripgrep \
         sudo \
+        tini \
         traceroute \
         tree \
-        zstd \
-    && rm -rf /var/lib/apt/lists/*
+        zstd
 
-RUN yes | unminimize
 RUN ln -s $(which fdfind) /usr/local/bin/fd
+
+WORKDIR /root
+CMD ["/bin/bash"]
+ENTRYPOINT ["tini", "--"]
