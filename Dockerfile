@@ -1,5 +1,6 @@
 FROM ubuntu:latest
 ENV DEBIAN_FRONTEND=noninteractive
+WORKDIR /root
 
 RUN apt-get update \
     && apt-get install --no-install-recommends --yes \
@@ -7,8 +8,11 @@ RUN apt-get update \
         build-essential \
         curl \
         fd-find \
+        git \
+        gron \
         iproute2 \
         iputils-ping \
+        jq \
         lz4 \
         mtr \
         neovim \
@@ -22,3 +26,4 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/*
 
 RUN yes | unminimize
+RUN ln -s $(which fdfind) /usr/local/bin/fd
