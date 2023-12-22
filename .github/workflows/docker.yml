@@ -1,0 +1,17 @@
+name: Docker
+
+on:
+  push:
+  schedule:
+    # At 06:27 on Monday
+    - cron: '27 6 * * 1'
+
+jobs:
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: dioptra-io/publish-docker-action@v1
+        with:
+          password: ${{ secrets.GITHUB_TOKEN }}
+          platforms: linux/amd64,linux/arm64
