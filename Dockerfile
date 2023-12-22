@@ -10,30 +10,38 @@ RUN apt-get update && apt-get install --yes \
 RUN apt-get update && apt-get install --yes \
         autojump \
         curl \
+        ethtool \
         fd-find \
         git \
         gron \
         htop \
+        iftop \
+        iotop \
+        iperf3 \
         iproute2 \
         iputils-ping \
         jq \
         lz4 \
         mtr \
         neovim \
+        netcat-openbsd \
+        net-tools \
         parallel \
         pipx \
+        python3-poetry \
         python-is-python3 \
         ripgrep \
+        snmp \
         sudo \
         tini \
         traceroute \
         tree \
+        wireguard-go \
         zsh \
         zsh-autosuggestions \
         zsh-syntax-highlighting \
         zstd
 
-RUN pipx install poetry
 RUN ln -s $(which fdfind) /usr/local/bin/fd
 
 WORKDIR /root
