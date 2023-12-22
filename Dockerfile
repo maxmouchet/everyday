@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM ubuntu:rolling
 ENV DEBIAN_FRONTEND=noninteractive
 
 RUN yes | unminimize
@@ -22,6 +22,7 @@ RUN apt-get update && apt-get install --yes \
         neovim \
         parallel \
         pipx \
+        python-is-python3 \
         ripgrep \
         sudo \
         tini \
@@ -32,6 +33,7 @@ RUN apt-get update && apt-get install --yes \
         zsh-syntax-highlighting \
         zstd
 
+RUN pipx install poetry
 RUN ln -s $(which fdfind) /usr/local/bin/fd
 
 WORKDIR /root
