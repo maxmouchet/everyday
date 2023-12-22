@@ -8,6 +8,7 @@ RUN apt-get update && apt-get install --yes \
         ubuntu-standard
 
 RUN apt-get update && apt-get install --yes \
+        autojump \
         curl \
         fd-find \
         git \
@@ -26,10 +27,15 @@ RUN apt-get update && apt-get install --yes \
         tini \
         traceroute \
         tree \
+        zsh \
+        zsh-autosuggestions \
+        zsh-syntax-highlighting \
         zstd
 
 RUN ln -s $(which fdfind) /usr/local/bin/fd
 
 WORKDIR /root
-CMD ["/bin/bash"]
+COPY .zshrc .zshrc
+
+CMD ["/bin/zsh"]
 ENTRYPOINT ["tini", "--"]
