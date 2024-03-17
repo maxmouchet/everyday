@@ -8,5 +8,9 @@ A Docker image for everyday use:
 - Man pages are available
 
 ```bash
+# Docker
 docker run --rm -it ghcr.io/maxmouchet/everyday:main
+
+# Kubernetes
+kubectl run everyday --rm -it --image ghcr.io/maxmouchet/everyday:main
 ```
