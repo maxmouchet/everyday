@@ -12,7 +12,9 @@ RUN apt-get update && apt-get install --yes \
         curl \
         ethtool \
         fd-find \
+        fio \
         git \
+        glances \
         gron \
         htop \
         iftop \
@@ -34,6 +36,7 @@ RUN apt-get update && apt-get install --yes \
         snmp \
         sudo \
         tini \
+        tshark \
         traceroute \
         tree \
         wireguard-go \
