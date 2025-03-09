@@ -1,6 +1,7 @@
 FROM ubuntu:rolling
 ENV DEBIAN_FRONTEND=noninteractive
 
+RUN apt-get update && apt-get install --yes unminimize
 RUN yes | unminimize
 
 RUN apt-get update && apt-get install --yes \
